@@ -41,7 +41,7 @@ class DatabaseService extends ChangeNotifier {
 
   Future<void> updateProduct(Product product) async {
     try {
-      await _supabase.from('products').update(product.toMap()).eq('id', product.id);
+      await _supabase.from('products').update(product.toMap()).eq('id', product.id!);
       await fetchProducts();
     } catch (e) {
       if (kDebugMode) {
